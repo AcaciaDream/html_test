@@ -3,9 +3,49 @@
   <head>
     <meta charset="utf-8">
     <title>아톰연결</title>
+    <style media="screen">
+      *{margin: 0; padding: 0;}
+      .div{width: 800px; margin: 0 auto; text-align: center; padding-top: 150px;}
+    </style>
   </head>
   <body>
-    아톰에 git을 연결
-    test
+
+    <div class="div">
+      <form class="" action="index.html" method="post">
+        <div class="">
+          1 ~ 10 사이에 무작위 수 맞추기 <br>
+          <input id="user" type="text" name="number" value=""> <br>
+        </div>
+      </form>
+      <button id="ans" type="button">Answer</button> <button id="reset" type="button">Reset</button> <br>
+      <p id="p1"></p> <br>
+      <p id="p2"></p>
+    </div>
+
+    <script type="text/javascript">
+      var random = Math.floor((Math.random() * 10) + 1);
+      var user;
+      var count = 0;
+      var ans = document.getElementById('ans');
+      var reset = document.getElementById('reset');
+      var p1 = document.getElementById('p1');
+      var p2 = document.getElementById('p2');
+
+      reset.addEventListener('click', function() {
+        var random = Math.floor((Math.random() * 10) + 1);
+        count = 0;
+      });
+
+      ans.addEventListener('click', function() {
+        count++;
+        user = document.getElementById('user').value;
+        if(Number(random) == Number(user)) {
+          p1.innerHTML = "정답입니다.";
+          p2.innerHTML = count + "번째에 맞췄습니다.";
+        } else {
+          p1.innerHTML = "오답입니다.";
+        }
+      });
+    </script>
   </body>
 </html>
